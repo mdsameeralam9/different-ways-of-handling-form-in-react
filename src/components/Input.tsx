@@ -11,10 +11,10 @@ const Input:React.FC<FormInput> = ({
   onChange = () => {},
 }) => {
   return (
-    <div className="flex flex-col gap-1 w-full">
-      <label htmlFor={label}>{label}</label>
+    <div className="flex flex-col gap-1 w-full my-4">
+      <label className="text-blue-900 font-extrabold" htmlFor={label}>{label}</label>
       <input
-        className="border border-gray-300 rounded p-1 w-full"
+        className="border border-gray-300 rounded p-1 w-full pl-2 focus:border-blue-950"
         id={label}
         type={type}
         placeholder={placeholder}
