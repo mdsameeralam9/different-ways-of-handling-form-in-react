@@ -30,17 +30,22 @@ const FormWithHooksState = () => {
     // loading true
     setLoading(true);
 
-    // validate 
+    // validate
 
     // simulate delay
     await delay();
 
-    // api call
+    // paload
+    // const payload = new FormData();
+    // payload.append('email', formState.email);
+    // payload.append('password', formState.password);
+
     const payload = {
       email: formState.email,
       password: formState.password,
     };
 
+    // api call
     fetch("https://fakestoreapi.com/users", {
       method: "POST",
       body: JSON.stringify(payload),

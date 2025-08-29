@@ -19,3 +19,9 @@ export interface ButtonProps{
   label?: string;
   handleActioninButton?: boolean;
 }
+
+// Exact action type for useActionState
+export type HandleFormSubmit = (
+  prevState: FormState,
+  formData: FormData
+) => Promise<FormState> | FormState;

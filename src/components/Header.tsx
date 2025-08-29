@@ -8,7 +8,7 @@ const Header = () => {
         <Link to="">useState</Link>
         <Link to="form1">useFormStatus</Link>
         <Link to="form2">useActionState</Link>
-        <Link to="form3">Form3</Link>
+        <Link to="form3">WithoutHooks</Link>
       </nav>
     </header>
   );
