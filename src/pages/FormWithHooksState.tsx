@@ -3,14 +3,15 @@ import type { FormState } from "../types";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
-import LoginWrapper from "../components/LoginWrapper";
+import LoginContainer from "../components/LoginWrapper";
 
 const initialFormData = {
   email: "",
   password: "",
 };
 
-const delay = () => new Promise((res) => setTimeout(res, 3000));
+export const delay = (time = 3000) =>
+  new Promise((res) => setTimeout(res, time));
 
 const FormWithHooksState = () => {
   const [formState, setFormState] = useState<FormState>({ ...initialFormData });
@@ -18,18 +19,18 @@ const FormWithHooksState = () => {
 
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormState((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleFormSubmit = async (e) => {
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     // loading true
     setLoading(true);
 
-    // valid
+    // validate 
 
     // simulate delay
     await delay();
@@ -50,7 +51,6 @@ const FormWithHooksState = () => {
           "user",
           JSON.stringify({ ...finalResponse, ...payload })
         );
-
         // reset the form state
         setFormState({ ...initialFormData });
       })
@@ -70,7 +70,7 @@ const FormWithHooksState = () => {
   const { email, password } = formState;
 
   return (
-    <LoginWrapper>
+    <LoginContainer>
       <form onSubmit={handleFormSubmit} className="w-full">
         <Input
           label="Email"
@@ -79,6 +79,7 @@ const FormWithHooksState = () => {
           name="email"
           value={email}
           onChange={handleChange}
+          required
         />
         <Input
           label="Password"
@@ -87,10 +88,11 @@ const FormWithHooksState = () => {
           name="password"
           value={password}
           onChange={handleChange}
+          required
         />
         <Button loading={loading} />
       </form>
-    </LoginWrapper>
+    </LoginContainer>
   );
 };
 

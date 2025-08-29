@@ -6,9 +6,9 @@ const Input:React.FC<FormInput> = ({
   type = "",
   placeholder = "",
   name = "",
-  value = "",
+  value,
   required = true,
-  onChange = () => {},
+  onChange,
 }) => {
   return (
     <div className="flex flex-col gap-1 w-full my-4">

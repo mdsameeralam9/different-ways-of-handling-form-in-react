@@ -7,7 +7,7 @@ import {
 import Header from "../components/Header";
 import FormWithHooksState from "./FormWithHooksState";
 import Profile from "./Profile";
-const Form1  =  lazy(() => import("./Form1"));
+const Form1  =  lazy(() => import("./FormWithuseFormStatus"));
 const Form2  =  lazy(() => import("./Form2"));
 const Form3  =  lazy(() => import("./Form3"));
 

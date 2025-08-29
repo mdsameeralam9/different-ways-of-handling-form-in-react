@@ -1,6 +1,12 @@
+import { useFormStatus } from "react-dom";
+import type { ButtonProps } from "../types";
 import CircleLoader from "./CircleLoader";
 
-const Button = ({ loading = false, type = "submit", label = "Submit" }) => {
+
+const Button:React.FC<ButtonProps> = ({ loading, type = "submit", label = "Submit" }) => {
+  const { pending } = useFormStatus();
+
+  const isLoading = loading ?? pending;
   return (
     <div className="flex w-full justify-center items-center my-4">
       <button
@@ -8,7 +14,7 @@ const Button = ({ loading = false, type = "submit", label = "Submit" }) => {
         disabled={loading}
         className="bg-blue-900 h-8 flex justify-center text-white py-1 px-12 cursor-pointer rounded w-full disabled:opacity-80"
       >
-        {!loading ? label : <CircleLoader />}
+        {!isLoading ? label : <CircleLoader />}
       </button>
     </div>
   );

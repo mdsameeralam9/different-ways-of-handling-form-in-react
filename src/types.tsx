@@ -6,9 +6,16 @@ export interface FormState {
 export interface FormInput {
   label: string;
   name: string;
-  value: string;
+  value?: string;
   type: string;
   placeholder: string;
-  required: boolean;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  required?: boolean;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export interface ButtonProps{
+  loading?: boolean;
+  type?: 'submit' | 'button';
+  label?: string;
+  handleActioninButton?: boolean;
 }
