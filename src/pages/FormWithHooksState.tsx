@@ -1,8 +1,9 @@
-import  { useState } from "react";
+import { useState } from "react";
 import type { FormState } from "../types";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
+import LoginWrapper from "../components/LoginWrapper";
 
 const initialFormData = {
   email: "",
@@ -69,10 +70,7 @@ const FormWithHooksState = () => {
   const { email, password } = formState;
 
   return (
-    <div className="bg-white w-[40%] shadow p-4 flex flex-col gap-1 justify-between items-center rounded min-h-60 h-[60%]">
-      <div className="">
-        <h1 className="text-2xl font-bold">Login With Your Credential</h1>
-      </div>
+    <LoginWrapper>
       <form onSubmit={handleFormSubmit} className="w-full">
         <Input
           label="Email"
@@ -92,7 +90,7 @@ const FormWithHooksState = () => {
         />
         <Button loading={loading} />
       </form>
-    </div>
+    </LoginWrapper>
   );
 };
 
